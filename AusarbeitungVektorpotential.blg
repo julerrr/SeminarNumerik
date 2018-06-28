@@ -1,0 +1,15 @@
+[0] Config.pm:340> INFO - This is Biber 2.4
+[0] Config.pm:343> INFO - Logfile is 'AusarbeitungVektorpotential.blg'
+[34] biber:287> INFO - === Do Jun 28, 2018, 14:41:10
+[122] Biber.pm:348> INFO - Reading 'AusarbeitungVektorpotential.bcf'
+[256] Biber.pm:742> INFO - Found 1 citekeys in bib section 0
+[262] Biber.pm:3151> INFO - Processing section 0
+[299] Biber.pm:3308> INFO - Looking for bibtex format file 'refs.bib' for section 0
+[301] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[302] bibtex.pm:974> INFO - Found BibTeX data source 'refs.bib'
+[325] UCollate.pm:65> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[326] UCollate.pm:65> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[326] Biber.pm:3028> INFO - Sorting list 'nty/global' of type 'entry' with scheme 'nty' and locale 'de-DE'
+[326] Biber.pm:3032> INFO - No sort tailoring available for locale 'de-DE'
+[327] bbl.pm:519> INFO - Writing 'AusarbeitungVektorpotential.bbl' with encoding 'UTF-8'
+[331] bbl.pm:615> INFO - Output to AusarbeitungVektorpotential.bbl
