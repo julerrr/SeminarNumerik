@@ -24,6 +24,22 @@ Grafisch kann das Vektorpotential intepretiert werden, als ein Potential, welche
 	\input{graph/potential_neu.pdf_tex}
 	\caption{Grafische Darstellung des magnetischen Vektorpotentials f\"ur ein Magnetfeld, welches durch den Strom innerhalb eines Torus f\"ormigen Leiters erzeugt wird.}
 	\label{fig:vecpot}
-	
 \end{figure}
+
+\subsection{Differentialgleichung zweiter Ordnung mittels Vektorpotential}
+Das Vektorpotential kann anschlie\ss{}end verwendet werden, um die Differentialgleichung zweiter Ordnung herzuleiten. Dazu wird zun\"achst die Materialbeziehung f\"ur das Magnetische Feld betrachtet:
+\begin{equation}
+	\vec{B} = \mu\vec{H} 
+\end{equation}
+\par
+In diese kann das Vektorpotential eingesetzt werden und man erh\"alt:
+\begin{equation}
+	\vec{H} = \frac{1}{\mu} \rot\vec{A}
+\end{equation}
+Diese Beziehung kann nun direkt in~\ref{eq:amplaw} eingesetzt werden und man Erh\"alt die Gleichung zweiter Ordnung:
+\begin{align}
+	\rot \vec{H} &= \vec{J} \\
+	\rot \frac{1}{\mu} \rot\vec{A} &= \vec{J}
+\end{align}
+
 
