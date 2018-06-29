@@ -4,7 +4,7 @@ Zur Definition eines Vektorpotentials kann nun wieder die Beziehung~\ref{eq:divf
 Wird ein Vektorpotential der Form $\exists\vec{A}\in H(curl)$
 \par
 \begin{equation}
-	\vec{A} = \rot\vec{B}
+	\vec{B} = \rot\vec{A}
 \end{equation}
 Eingef\"uhrt, so ist Gleichung~\ref{eq:max4} weiterhin erf\"ullt. Ebenso wird die De Rham Sequenz dadurch weiterhin befolgt. 
 \par
@@ -25,6 +25,8 @@ Grafisch kann das Vektorpotential intepretiert werden, als ein Potential, welche
 	\caption{Grafische Darstellung des magnetischen Vektorpotentials f\"ur ein Magnetfeld, welches durch den Strom innerhalb eines Torus f\"ormigen Leiters erzeugt wird.}
 	\label{fig:vecpot}
 \end{figure}
+\par
+\textbf{Anmerkung:} Das magnetische Vektorpotential hat keine physikalische Bedeutung. Es dient lediglich als Hilfsgr\"o\ss{}e, um eine Differentialgleichung zweiter Ordnung zur L\"osung f\"ur die magnetische Flussdichte $\vec{B}$ bilden zu k\"onnen. Die gesuchte Gr\"o\ss{}e ist also am Ende weiterhin $\vec{B}$.
 
 \subsection{Differentialgleichung zweiter Ordnung mittels Vektorpotential}
 Das Vektorpotential kann anschlie\ss{}end verwendet werden, um die Differentialgleichung zweiter Ordnung herzuleiten. Dazu wird zun\"achst die Materialbeziehung f\"ur das Magnetische Feld betrachtet:
@@ -42,4 +44,23 @@ Diese Beziehung kann nun direkt in~\ref{eq:amplaw} eingesetzt werden und man Erh
 	\rot \frac{1}{\mu} \rot\vec{A} &= \vec{J}
 \end{align}
 
+
+\newpage
+
+
+\subsection{Coulomb Eichung}
+\label{sec:coul}
+Es gilt zu beachten, dass das Vektorpotential nicht eindeutig definiert ist. Mittels der vektoranalytischen Grundgleichungen ist leicht ersichtlich, dass eine Aufteilung des Vektorpotentials in der Form 
+\par
+\begin{equation}
+	\vec{A} = \vec{A}^{*} + \grad\Phi
+\end{equation}
+Die L\"osung nicht ver\"andert, da der Gradiententerm durch die Anwendung des rot-Operators verschwindet.
+\par
+Folglich kann $\Phi$ in diesem Fall so gew\"ahlt werden, dass bestimmte Einschr\"ankungen erf\"ullt sind. F\"ur unseren Fall bietet sich die Coulomb Eichung an. Diese sieht vor, dass $\Phi$ so gew\"ahlt wird, dass f\"ur das Vektorpotential gilt:
+\begin{equation}
+	\dive \vec{A} = 0
+\end{equation}
+\par
+Warum diese Wahl hilfreich ist wird sp\"ater erl\"autert.
 
