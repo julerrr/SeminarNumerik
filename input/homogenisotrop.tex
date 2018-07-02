@@ -1,2 +1,34 @@
-\section{L\"osung f\"ur homogene und isotrope Materialien}
-Bevor die schwache Formulierung und folglich die numerische L\"osung der Vektorpotentialgleichung diskutiert wird, soll im folgenden ein Fall dargestellt werden, f\"ur den auch leicht eine analytische L\"osung ist.
+\section{L\"osung f\"ur homogene und isotrope Materialien im Freiraum}
+Bevor die schwache Formulierung und folglich die numerische L\"osung der Vektorpotentialgleichung diskutiert wird, soll im folgenden ein Fall dargestellt werden, f\"ur den auch leicht eine analytische L\"osung ist. Dieser Fall tritt ein, wenn die betrachtete Umgebung mit homogenem und isotropen Material gef\"ullt ist, und keine R\"ander besitzt (Freiraum).
+\par
+Dazu werden zun\"achst Homogenit\"at und Isotropie definiert. Im Allgemeinen ist die Permeabilit\"at eines Materials gegeben als ein Tensor zweiter Stufe folgender Form:
+\par
+\begin{equation}
+	\mu(\vec{r}) = \begin{pmatrix} \mu_1(\vec{r}) & 0 & 0 \\ 0 &\mu_2(\vec{r})  & 0 \\ 0 & 0 & \mu_3(\vec{r})  \end{pmatrix}
+\end{equation}
+Homogenit\"at besagt nun, dass $\mu$ in jedem Raumpunkt identisch ist ($\mu(\vec{r}) = \mu$), und Isotropie, dass die Permeabilit\"at in jede Richtung identisch ist, also dass $\mu_1 = \mu_2 = \mu_3$. Folglich kann $\mu$ als Skalare Gr\"o\ss{}e angenommen werden, die nicht vom Ort abh\"angt.
+\par
+F\"ur die Differentialgleichung zweiter Ordnung kann in diesem Fall eine Vereinfachung vorgenommen werden:
+\begin{equation}
+	 \vec{J} = \rot \frac{1}{\mu} \rot\vec{A} = \frac{1}{\mu} \rot\rot\vec{A}
+\end{equation}
+\par
+Mit Beziehung \ref{eq:wirbwirb} kann der rotrot-Term umgeschrieben werden:
+\par
+\begin{equation}
+	  \vec{J} = \frac{1}{\mu} \rot\rot\vec{A}  = \frac{1}{\mu} (\grad\dive \vec{A} - \Delta \vec{A})
+\end{equation}
+Der erste Summand der rechten Seite verschwindet, da durch die Coulomb-Eichung gefordert ist, dass $\dive\vec{A} = 0$, sodass folgt:
+\begin{equation}
+	 \vec{J} = -\frac{1}{\mu}\Delta \vec{A}
+\end{equation}
+\par
+Oder umgestellt:
+\begin{equation}
+	-\mu\vec{J} = \Delta \vec{A}
+\end{equation}
+\par
+also eine Poisson Gleichung. Diese l\"asst sich analytisch l\"osen. Da allerdings keine R\"ander betrachtet werden k\"onnen, ist eine numerische L\"osung erforderlich, sobald ein Problem in einem berandeten Gebiet betrachtet wird.
+
+
+
