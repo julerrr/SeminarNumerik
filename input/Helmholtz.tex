@@ -10,3 +10,37 @@ Dabei wird $\Phi$ als Skalarpotential, und $\psi$ als Vektorpotential bezeichnet
 	\psi = \psi^{*} + \nabla\chi 
 \end{equation}
 gesplittet werden kann. Dadurch kann auch hier eine bestimmte Einschr\"ankung gew\"ahlt werden, wie die Coulomb Eichung ($\dive \psi = 0$).
+
+\subsection{Sonderfall f\"ur $u\in H(curl)$}
+F\"ur den Fall, dass die Vektorfunktion u im H(curl) Raum liegt, kann eine Zerlegung in der Form \par
+\begin{equation}
+	u = \nabla\Phi + z
+\end{equation}
+wobei $Z = \rot \psi$ ist, gefunden werden.
+Dabei gilt: $\Phi\in H^1$ und $z\in [H^1]^3$\par
+Au\ss{}erdem gilt hierbei, dass ein $q\in H(div)$ existiert, sodass:\par
+\begin{equation}
+	\rot z = q = \rot u
+	\label{eq:qdef}
+\end{equation}
+Diese Beziehung folgt erneut aus der Gleichung der Vektoranalysis, nach der der Gradiententerm durch Anwendung einer Rotation verschwindet.
+\par
+Weniger trivial ist die Beziehung der Funktionenr\"aume. Hierzu werden zun\"achst Einschr\"ankungen eingef\"uhrt:
+\begin{align}
+	\dive z &= 0\\
+	z\cdot n &= 0
+\end{align}
+In (\cite{Schberl2009NumericalMF}, S.24ff) Wird der Beweis gef\"uhrt, indem die Funktion q mit null auf ganz $\Re^3$ erweitert wird. \"Uber die Fouriertranformation von q (\ref{eq:four0} - \ref{eq:four}) kann daraufhin die $H^1$ Seminorm von z unter der Einschr\"ankung $\dive z =0$ in ganz $\Re^3$ bestimmt werden.
+\par
+\begin{align}
+	\mathcal{F}(\nabla q) &= 2\pi i\xi\mathcal{F}q \label{eq:four0}\\
+	\mathcal{F}(\rot q) &= 2\pi i\xi\times\mathcal{F}q \\
+	\mathcal{F}(\dive q) &= 2\pi i\xi\cdot\mathcal{F}q
+	\label{eq:four}
+\end{align}
+\par
+\begin{equation}
+	\|\nabla z\|_{L_2(\Re^3)} = \|2\pi i \xi \tilde{z}\|_{L_2(\Re^3)} = \bigg{\|}\frac{\xi\xi\times\tilde{q}}{|\xi|^2}\bigg{\|} = \|\tilde{q}\|_{L_2(\Re^3)} = \|q\|_{L_2(\Omega)}
+\end{equation}
+
+Da q nur erweitert wurde, l\"asst sich aus der Allgemeinen Beziehung daraufhin wieder die Einschr\"ankung t\"atigen, sodass die Beziehung auf jedem Teilgebiet $\Omega\in \Re^3$ g\"ultig ist.

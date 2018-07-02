@@ -1,1 +1,71 @@
 \section{Schwache Formulierung der Vektorpotentialgleichung}
+
+\subsection{Lax-Milgram}
+\textbf{1. Hilbertraum:}\par
+Der Raum H(curl) besitzt ein inneres Produkt und ist komplett:
+\begin{equation}
+	(u,v)_{H(curl)} = (u,v)_{L_2} + (\rot u,\rot v)_{L_2} 
+\end{equation}
+
+\begin{equation}
+	H(curl,\Omega) := \overline{\mathcal{D}(\overline{\Omega})}^{\| \cdot \|_{H(curl,\Omega)}}
+\end{equation}
+
+\textbf{2. Elliptizit\"at:}\par
+\begin{equation}
+	a(u,u) \geq c\|u\|^2_{H(curl)}
+\end{equation}
+Wir verwendet die Definition der H(curl) Norm:
+\begin{equation}
+	\|u\|^2_{H(curl)} = \|u\|^2_{L_2} + \|\rot u\|^2_{L_2}
+\end{equation}
+Mittels der Friedrichs-Typ Ungleichung f\"ur H(curl):
+\begin{equation}
+	\|u\|_{L_2} \leq c\|\rot u\|_{L_2}
+\end{equation}
+folgt nach einsetzten:
+\begin{align}
+	\|u\|^2_{H(curl)} &\leq C^2\|\rot u\|^2_{L_2} + \|\rot u\|^2_{L_2} \\
+	\|u\|^2_{H(curl)} &\leq (1+C^2)\|\rot u\|^2_{L_2} \\
+	\|\rot u\|^2_{L_2} &\geq \frac{1}{1+C^2}\|u\|^2_{H(curl)}\\
+\end{align}
+F\"ur $a(u,u)$ gilt:
+\begin{align}
+	a(u,u) &= \int_\Omega \frac{1}{\mu} \rot u\,rot u \,dx \\
+	 &= \int_\Omega \frac{1}{\mu} (\rot u)^2\,dx \\
+	 &\geq \inf_{\mu \in L_2} \frac{1}{\mu}\|\rot u\|^2_{L_2} \\
+	 &\geq \inf_{\mu \in L_2} \frac{1}{\mu}\frac{1}{1+C^2}\|u\|^2_{H(curl)}\\
+	 &= \frac{1}{\mu_1}\|u\|^2_{H(curl)}
+\end{align}
+Folglich ist die schwache Formulierung elliptisch mit $\frac{1}{\mu_1} = \inf_{\mu \in L_2}\frac{1}{\mu}\frac{1}{1+C^2}$.
+
+
+\textbf{3. Stetig $a(\vec{A},v)$:}\par
+\begin{equation}
+	a(\vec{A},v) \leq C\|\vec{A}\|_{H(curl)}\|v\|_{H(curl)}
+\end{equation}
+Beweis mittels H\"older Ungleichung:
+\begin{align}
+	a(\vec{A},v) &= \int_\Omega \frac{1}{\mu} \rot\vec{A}\,\rot v\,dx \\
+	 &\leq \frac{1}{\mu}\|\rot\vec{A}\|_{L_1}\|\rot v\|_{L_1} \textrm{  (Mit H\"older)} \\
+	 &\leq \frac{1}{\mu}\|\rot\vec{A}\|_{L_2}\|\rot v\|_{L_2} \\
+	 &\leq \frac{1}{\mu}\|\vec{A}\|_{H(curl)}\|v\|_{H(curl)} \\
+\end{align}
+
+
+
+\textbf{4. Stetig $l(v))$:}\par
+\begin{equation}
+	l(v) \leq \|v\|_{H(curl)}
+\end{equation}
+Beweis:
+\begin{align}
+	l(v) &= \int_\Omega \vec{J}\cdot v\,dx \textrm{   mit C-S}\\
+	&\leq \|\vec{J}\|_{L_2} \|v\|_{L_2}\\
+	&\leq \|\vec{J}\|_{L_2} \|v\|_{H(curl)}\\
+\end{align}
+
+Funktioniert, solange das Feld div-Frei ist. Sonst ergibt sich:
+\begin{equation}
+	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi = \int_\Omega \vec{J}\cdot v ~~~~~~~~\forall v \in H(curl)
+\end{equation}
