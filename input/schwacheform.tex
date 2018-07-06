@@ -1,21 +1,84 @@
 \section{Schwache Formulierung der Vektorpotentialgleichung}
+Um f\"ur unsere schwache Formulierung die Randterme behandelt zu k\"onnen muss zun\"achst eine Wahl der Randbedingungen gef\"allt werden. Wir setzen $\vec{A}\times n = 0$ und $v\times n = 0$. Diese Wahl der Randwerte erf\"ullt auch unsere bereits genannte physikalische Randbedingung $B\cdot n = 0$. Das l\"asst sich \"uber die Spatproduktregel verkn\"upfen. Diese besagt:
+\par
+\begin{equation}
+	(u \times n)\cdot v = u\cdot (n\times v)
+\end{equation}
+Also gilt f\"ur die physikalische Randbedingung:
+\par
+\begin{equation}
+	\vec{B}\cdot n = \rot\vec{A}\cdot n = (\nabla\times A) \cdot n = \nabla \cdot (\vec{A}\times n) = 0
+\end{equation}
+Mit der Forderung $\vec{A}\times n = 0$ ist die Bedingung $\nabla \cdot (\vec{A}\times n)$ implizit erf\"ullt, und somit auch die physikalische Randbedingung.
+\par
+Jetzt soll die schwache Formulierung der Vektorpotentialgleichung bestimmt werden. Dazu wird wie immer die Differentialgleichung zweiter Ordnung zun\"achst \"uber das gesamte Gebiet integriert. Es ergibt sich: \par
+Gesucht ist ein $v\in V = \{w \in H(curl): <v,\nabla\Phi> = 0\}$ mit $v\times n = 0$ und $\vec{A}\times n = 0$ auf $\partial\Omega$. 
+\par
+\begin{equation}
+	\int_\Omega \rot\frac{1}{\mu}\rot \vec{A}\cdot v ~dx = \int_\Omega \vec{J}\cdot v ~dx 
+\end{equation}
+Mithilfe der allgemeinen partiellen Integration:
+\par
+\begin{equation}
+	\int_\Omega \rot u\cdot v ~dx = \int_\Omega u \cdot \rot v ~dx - \int_{\partial\Omega} (u \times n)\cdot v ~ds
+\end{equation}
+Wenden wir dies auf unsere Differentialgleichung an, so erhalten wir:
+\par
+\begin{equation}
+	\int_\Omega \rot\frac{1}{\mu}\rot \vec{A}\cdot v ~dx = \int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx - \int_{\partial\Omega} (\frac{1}{\mu} \rot \vec{A} \times n)\cdot v ~ds = \int_\Omega \vec{J}\cdot v ~dx
+\end{equation}
+Um den Randterm so umzuformen, dass er zu den genannten Bedingungen passt, wird die Spatprodukt-Regel in leicht ver\"anderter Form verwendet, danach k\"onnen wir schreiben:
+\par
+\begin{equation}
+	 -(u \times n)\cdot v = -u\cdot (n\times v) = u\cdot(v\times n) 
+\end{equation}
+F\"ur unsere Differentialgleichung folgt demnach:
+\par
+\begin{equation}
+	\int_\Omega \rot\frac{1}{\mu}\rot \vec{A}\cdot v ~dx = \int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_{\partial\Omega} (\frac{1}{\mu} \rot \vec{A})\cdot (v \times n) ~ds = \int_\Omega \vec{J}\cdot v ~dx
+\end{equation}
+Da $v\times n = 0$ auf $\partial\Omega$ lautet die schwache Fomulierung also: \par
+Gesucht ist ein $v\in V = \{w \in H(curl): <v,\nabla\Phi> = 0\}$ mit $v\times n = 0$ und $\vec{A}\times n = 0$ auf $\partial\Omega$.
+\par
+\begin{equation}
+	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx = \int_\Omega \vec{J}\cdot v ~dx
+\end{equation}
+Mit der Bilinearform:
+\begin{equation}
+	a(\vec{A},v) =  \int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx 
+\end{equation}
+und der Linearform:
+\begin{equation}
+	l(v) = \int_\Omega \vec{J}\cdot v ~dx
+\end{equation}
+F\"ur diese Formulierung muss folgend noch die eindeutige L\"osbarkeit gezeigt werden. Daf\"ur wird das Lax-Milgram-Lemma verwendet.
 
 \subsection{Lax-Milgram}
+F\"ur das Lax-Milgram-Lemma sind vier Eigenschaften der Formulierung zu zeigen. Diese sind:
+\begin{itemize}
+	\item[1] Der Raum v ist ein Hilbertraum
+	\item[2] Die Bilinearform $a(\vec{A},v)$ ist elliptisch
+	\item[3] Die Bilinearform $a(\vec{A},v)$ ist Stetig
+	\item[4] Die Linearform $l(v)$ ist stetig
+\end{itemize}
+Im folgenden werden diese Bedigungen einzeln gepr\"uft.
+\par
 \textbf{1. Hilbertraum:}\par
-Der Raum H(curl) besitzt ein inneres Produkt und ist komplett:
+Der Raum $v\in V = \{w \in H(curl): <v,\nabla\Phi> = 0\}$ mit $v\times n = 0$ besitzt ein inneres Produkt und ist komplett:
 \begin{equation}
 	(u,v)_{H(curl)} = (u,v)_{L_2} + (\rot u,\rot v)_{L_2} 
 \end{equation}
 
 \begin{equation}
-	H(curl,\Omega) := \overline{\mathcal{D}(\overline{\Omega})}^{\| \cdot \|_{H(curl,\Omega)}}
+	v := \overline{\mathcal{D}(\overline{\Omega})}^{\| \cdot \|_v}
 \end{equation}
 
-\textbf{2. Elliptizit\"at:}\par
+\textbf{2. Elliptizit\"at der Bilinearform $a(\vec{A},v)$:}\par
+F\"ur die Elliptizit\"at der Bilinearform ist zu zeigen:
 \begin{equation}
 	a(u,u) \geq c\|u\|^2_{H(curl)}
 \end{equation}
-Wir verwendet die Definition der H(curl) Norm:
+Wir verwenden die Definition der H(curl) Norm:
 \begin{equation}
 	\|u\|^2_{H(curl)} = \|u\|^2_{L_2} + \|\rot u\|^2_{L_2}
 \end{equation}
@@ -40,32 +103,34 @@ F\"ur $a(u,u)$ gilt:
 Folglich ist die schwache Formulierung elliptisch mit $\frac{1}{\mu_1} = \inf_{\mu \in L_2}\frac{1}{\mu}\frac{1}{1+C^2}$.
 
 
-\textbf{3. Stetig $a(\vec{A},v)$:}\par
+\newpage
+
+
+\textbf{3. Stetigkeit der Bilinearform $a(\vec{A},v)$:}\par
+F\"ur die Stetigkeit der Bilinearform ist zu zeigen:
 \begin{equation}
 	a(\vec{A},v) \leq C\|\vec{A}\|_{H(curl)}\|v\|_{H(curl)}
 \end{equation}
-Beweis mittels H\"older Ungleichung:
+Beweis mittels Cauchy-Schwarz, sowie der H\"olderschen Ungleichung:
 \begin{align}
 	a(\vec{A},v) &= \int_\Omega \frac{1}{\mu} \rot\vec{A}\,\rot v\,dx \\
-	 &\leq \frac{1}{\mu}\|\rot\vec{A}\|_{L_1}\|\rot v\|_{L_1} \textrm{  (Mit H\"older)} \\
+	 &\leq \frac{1}{\mu}\|\rot\vec{A}\|_{L_1}\|\rot v\|_{L_1} ~~~~~~\textrm{(mit H\"older)} \\
 	 &\leq \frac{1}{\mu}\|\rot\vec{A}\|_{L_2}\|\rot v\|_{L_2} \\
 	 &\leq \frac{1}{\mu}\|\vec{A}\|_{H(curl)}\|v\|_{H(curl)} \\
 \end{align}
 
 
 
-\textbf{4. Stetig $l(v))$:}\par
+\textbf{4. Stetigkeit der Linearform $l(v))$:}\par
+F\"ur die Stetigkeit der Linearform ist zu zeigen:
 \begin{equation}
 	l(v) \leq \|v\|_{H(curl)}
 \end{equation}
 Beweis:
+\par
 \begin{align}
 	l(v) &= \int_\Omega \vec{J}\cdot v\,dx \textrm{   mit C-S}\\
 	&\leq \|\vec{J}\|_{L_2} \|v\|_{L_2}\\
 	&\leq \|\vec{J}\|_{L_2} \|v\|_{H(curl)}\\
 \end{align}
-
-Funktioniert, solange das Feld div-Frei ist. Sonst ergibt sich:
-\begin{equation}
-	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi = \int_\Omega \vec{J}\cdot v ~~~~~~~~\forall v \in H(curl)
-\end{equation}
+Also ist Lax-Milgram f\"ur die Formulierung erf\"ullt und das Problem besitzt eine Eindeutige L\"osung.

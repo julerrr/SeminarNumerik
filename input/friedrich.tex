@@ -7,14 +7,23 @@ Unter Verwendung der Helmholtz Zerlegung:
 \end{equation}
 mit $z = \rot\psi$
 \par
-Sowie der Forderung:
+Sowie der Forderung (aus $\dive u = 0$):
 \par
 \begin{equation}
 	(u,\nabla\psi) = 0 ~~~~~~\forall \psi\in H^1_0
 \end{equation}
-
-
-
-ORTHOGONALIT\"AT VON Z UND GRAD PHI\\
-MIT HELMHOLTZ DANN BEWEIS NACH NOTES\\
-NACH POSTULAT DANN FRIEDRICHSUNGL. HINSCHREIBEN
+Ebenso ist aus der De-Rham Sequenz bekannt, dass $\dive z = 0$ ergeben muss. Folglich l\"asst sich schreiben:
+\par
+\begin{align}
+	(z, \nabla\psi) &= 0\\
+	(z, \nabla\psi) &= (u - \nabla\Phi, \nabla\psi) = 0  
+\end{align}
+Nun l\"asst sich \"uber die Absch\"atzung~\cite[Lemma 4.2]{hiptmair2002finite} auf einem einfachen und beschr\"ankten Lipschitz-Gebiet, die $L_2$ Norm durch die Norm der Rotation, der Divergenz und der Randbedingung mit den gezeigten Beziehungen $\dive u = 0$ und $n\times u = 0$ schreiben, dass:
+\par
+\begin{equation}
+	\|u\|_{L_2} \leq c[\|\rot u\|_{L_2} + \|\dive u\|_{L_2} + |n\times u|] = c\|\rot u\|_{L_2}
+\end{equation}
+Also haben wir die Friedrichs-Typ Ungleichung f\"ur H(curl):
+\begin{equation}
+	\|u\|_{L_2} = c\|\rot u\|_{L_2}
+\end{equation}
