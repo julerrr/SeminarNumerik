@@ -2,15 +2,42 @@
 Wir entfernen nun die Bedingung der Divergenzfreiheit aus dem Raum v, also: $v\in V = \{w \in H(curl)\}$ mit $v\times n = 0$ und $\vec{A}\times n = 0$ auf $\partial\Omega$. Das Lax-Milgram-Lemma ist f\"ur nun nicht mehr erf\"ullt und es ergibt sich: 
 \par
 \begin{equation}
-	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi = \int_\Omega \vec{J}\cdot v ~~~~~~~~\forall v \in H(curl)
+	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi = \int_\Omega \vec{J}\cdot v ~~~~~~~~\forall v \in V
 \end{equation}
+
+\newpage 
+
 Um dieses Problem trotzdem eindeutig l\"osen zu k\"onnen, wird die Bedingung der Divergenzfreiheit als zus\"atzliche Einschr\"ankung eingef\"uhrt. Man erh\"alt ein Sattelpunktsproblem der Form:
 \par
 \begin{align}
-	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi & = \int_\Omega \vec{J}\cdot v &\forall v \in H(curl) \\
+	\int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx + \int_\Omega v\cdot\nabla\varphi & = \int_\Omega \vec{J}\cdot v &\forall v \in V \\
 	\int_\Omega \vec{A}\cdot \nabla\psi &= 0 &\forall\psi\in H^1_0
 \end{align}
+Dabei sind:
+\begin{align}
+	a(\vec{A},v) &= \int_\Omega \frac{1}{\mu}\rot \vec{A} \cdot \rot v ~dx \\
+	b(v,\nabla\varphi) &=  \int_\Omega v\cdot\nabla\varphi \\
+	l(v) &= \int_\Omega \vec{J}\cdot v 
+\end{align}
+
+\par
+Um die Wohlgestelltheit dieses Problems festzustellen sind zwei Gegebenheiten zu pr\"ufen. Die erste Bedingung ist die Kernelliptizit\"at des Terms $a(\vec{A},v)$. Dies wurde bereits f\"ur das Lax-Milgram Lemma gezeigt, somit ist diese Bedigung erf\"ullt. Die zweite Bedingung ist die Einhaltung der Inf-Sup-Bedingung (LBB-Bedingung). Diese wird im folgenden gezeigt.
 
 
 \subsection{Inf-Sup-Bedingung nach Brezzi}
-
+Wir schreibem die die Inf-Sup-Bedingung f\"ur die Bilinearform $b(v,\nabla\varphi)$:
+\par
+\begin{equation}
+	\sup_{v\in V} \frac{\int v\cdot\nabla\varphi}{\|v\|_{V}} \geq \beta_1\|\nabla\varphi\|_{L_2}
+\end{equation}
+Zum Beweis w\"ahlen wir $v=\nabla\varphi$, und erhalten damit direkt:
+\par
+\begin{align}
+	\sup_{v\in V} \frac{\int v\cdot\nabla\varphi}{\|v\|_V}
+	&\geq \frac{\int \nabla\varphi\cdot\nabla\varphi}{\|\nabla\varphi\|_V} \\
+	&= \frac{\int (\nabla\varphi)^2}{\|\nabla\varphi\|_{V}}\\
+	&= \frac{\|\nabla\varphi\|^2_{L_2}}{\|\nabla\varphi\|_{V}} \\
+	&= \frac{\|\nabla\varphi\|^2_{L_2}}{\sqrt{\|\nabla\varphi\|^2_{L_2} + \|\rot{\nabla\varphi}\|^2_{L_2}}} \\
+	&= \frac{\|\nabla\varphi\|^2_{L_2}}{\|\nabla\varphi\|_{L_2}} \\
+	&= \|\nabla\varphi\|_{L_2}
+\end{align}
